@@ -34,6 +34,7 @@ func BuildLazyEvaluator(evalFunc EvalFunc, initState Any) func() Any {
 
 		// TODO: 这里什么时候跳出执行的? 难道不是一直死循环吗? 哪里实现了惰性生成器?
 		for {
+			//fmt.Println("evalFunc")
 			retVal, actState = evalFunc(actState)
 			retValChan <- retVal
 		}
